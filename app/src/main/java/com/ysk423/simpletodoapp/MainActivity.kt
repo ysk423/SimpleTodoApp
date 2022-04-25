@@ -12,12 +12,6 @@ import androidx.appcompat.app.AlertDialog
 
 
 
-/*ここ後で消す
-20：00から再開
- */
-
-
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                mutableListOf()//最初は空っぽ
+                mutableListOf()//最初は空っぽ、allayListOf()でも動く
         )
         lv.adapter = adapter
 
