@@ -1,7 +1,7 @@
 package com.ysk423.simpletodoapp
 
-import android.app.Dialog
-import android.content.DialogInterface
+//import android.app.Dialog
+//import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -40,24 +40,24 @@ class MainActivity : AppCompatActivity() {
                     .setTitle("項目の追加")
                     .setMessage("何をする？")
                     .setView(et)
-                    .setPositiveButton("追加",DialogInterface.OnClickListener { dialogInterface, i ->
+                    .setPositiveButton("追加") { _, _ ->
                         //add()でアダプターに追加
                         val myTodo = et.text.toString()
                         adapter.add(myTodo)
-                    })
+                    }
                     .setNegativeButton("キャンセル", null)
                     .show()
         }
 
         //listviewをタッチしたらアラートダイアログ
-        lv.setOnItemClickListener { adapterView, view, i, l ->
+        lv.setOnItemClickListener { _, _, i, _ ->
             AlertDialog.Builder(this)
                     .setTitle("削除しますか？")
                     //Yesおしたら、リムーブ
-                    .setPositiveButton("Yes", DialogInterface.OnClickListener { _, _ ->
+                    .setPositiveButton("Yes") { _, _ ->
                         adapter.remove(adapter.getItem(i))
                         adapter.notifyDataSetChanged()//画面を更新する呪文
-                    })
+                    }
                     .setNegativeButton("No", null)
                     .show()
         }
